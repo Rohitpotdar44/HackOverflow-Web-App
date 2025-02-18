@@ -2,7 +2,7 @@ import React from "react";
 import logo from "../assets/img/H0 3.0 assets/3.0 logo 2025.png";
 
 import "./Footer.css";
-import { GitHub, Instagram, LinkedIn, X } from "@mui/icons-material";
+import { GitHub, Instagram, LinkedIn } from "@mui/icons-material";
 import XIcon from "@mui/icons-material/X"; // Import XIcon
 
 const Footer = () => {
