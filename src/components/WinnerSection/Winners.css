@@ -1,0 +1,27 @@
+.winners-section {
+  padding: 20px;
+  text-align: center;
+}
+
+.winners-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #7DFFE4; /* Adjust color as needed */
+}
+
+.winners-gallery {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.winner-card {
+  margin: 10px;
+}
+
+.winner-image {
+  width: 200px; /* Adjust size as needed */
+  height: auto;
+  border-radius: 10px; /* Optional styling */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional styling */
+} 

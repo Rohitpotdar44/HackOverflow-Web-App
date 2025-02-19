@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useState } from "react";
 // import logo from "../../assets/img/hack-overflow-logo.png";
 // import fir from "../../assets/img/first.png"
 // import banneriamge from "../../assets/img/hackathon.jpg";
@@ -38,14 +38,40 @@ import { Link } from "react-router-dom";
 import OptimizedImage from '../common/OptimizedImage';
 
 const CollegeClub = () => {
-  // Preload images
+  const [imageError, setImageError] = useState(false);
+
+  // CDN URLs for images - Updated with correct path structure
+  const images = [
+    "https://hackoverflow3.blr1.cdn.digitaloceanspaces.com/CourselGallery/image1.webp",
+    "https://hackoverflow3.blr1.cdn.digitaloceanspaces.com/CourselGallery/image2.webp",
+    "https://hackoverflow3.blr1.cdn.digitaloceanspaces.com/CourselGallery/image3.webp",
+    "https://hackoverflow3.blr1.cdn.digitaloceanspaces.com/CourselGallery/image4.webp",
+    "https://hackoverflow3.blr1.cdn.digitaloceanspaces.com/CourselGallery/image5.webp",
+    "https://hackoverflow3.blr1.cdn.digitaloceanspaces.com/CourselGallery/image6.webp",
+    "https://hackoverflow3.blr1.cdn.digitaloceanspaces.com/CourselGallery/image7.webp"
+  ];
+
+  // Error handling for images
+  const handleImageError = (e) => {
+    console.error("Image failed to load:", e.target.src);
+    setImageError(true);
+  };
+
+  // Preload images with error handling
   React.useEffect(() => {
-    const imageUrls = [image1, image2, image3];
-    imageUrls.forEach(url => {
+    images.forEach(url => {
       const img = new Image();
       img.src = url;
+      img.onerror = () => {
+        console.error("Failed to preload image:", url);
+        setImageError(true);
+      };
     });
   }, []);
+
+  if (imageError) {
+    console.log("Loading fallback content due to image errors");
+  }
 
   return (
     <Suspense fallback={<div className="loading-skeleton">Loading...</div>}>
@@ -69,65 +95,19 @@ const CollegeClub = () => {
                 interval={2000}
                 className="border-white d-block h-[235px] sm:h-[450px] lg:h-[550px] xl:h-[550px]"
               >
-                <Carousel.Item>
-                  <OptimizedImage
-                    src={image1}
-                    alt="First slide"
-                    className="d-block w-screen h-[235px] sm:h-[450px] lg:h-[550px] xl:h-[550px]"
-                    priority={true}
-                    fetchpriority="high"
-                  />
-                </Carousel.Item>
-                <Carousel.Item>
-                  <OptimizedImage
-                    src={image2}
-                    alt="Second slide"
-                    className="d-block w-screen h-[235px] sm:h-[450px] lg:h-[550px] xl:h-[550px]"
-                    priority={true}
-                    fetchpriority="high"
-                  />
-                </Carousel.Item>
-                <Carousel.Item>
-                  <OptimizedImage
-                    src={image3}
-                    alt="Third slide"
-                    className="d-block w-screen h-[235px] sm:h-[450px] lg:h-[550px] xl:h-[550px]"
-                    priority={true}
-                    fetchpriority="high"
-                  />
-                </Carousel.Item>
-                <Carousel.Item>
-                  <OptimizedImage
-                    src={image4}
-                    alt="Fourth slide"
-                    className="d-block w-screen h-[235px] sm:h-[450px] lg:h-[550px] xl:h-[550px]"
-                    priority={true}
-                  />
-                </Carousel.Item>
-                <Carousel.Item>
-                  <OptimizedImage
-                    src={image5}
-                    alt="Fifth slide"
-                    className="d-block w-screen h-[235px] sm:h-[450px] lg:h-[550px] xl:h-[550px]"
-                    priority={true}
-                  />
-                </Carousel.Item>
-                <Carousel.Item>
-                  <OptimizedImage
-                    src={image6}
-                    alt="Sixth slide"
-                    className="d-block w-screen h-[235px] sm:h-[450px] lg:h-[550px] xl:h-[550px]"
-                    priority={true}
-                  />
-                </Carousel.Item>
-                <Carousel.Item>
-                  <OptimizedImage
-                    src={image7}
-                    alt="Seventh slide"
-                    className="d-block w-screen h-[235px] sm:h-[450px] lg:h-[550px] xl:h-[550px]"
-                    priority={true}
-                  />
-                </Carousel.Item>
+                {images.map((imageUrl, index) => (
+                  <Carousel.Item key={index}>
+                    <OptimizedImage
+                      src={imageUrl}
+                      alt={`Hackoverflow 2.0 Glimpse ${index + 1}`}
+                      className="d-block w-screen h-[235px] sm:h-[450px] lg:h-[550px] xl:h-[550px]"
+                      priority={index < 3}
+                      fetchpriority={index < 3 ? "high" : "low"}
+                      onError={handleImageError}
+                      style={{ objectFit: "cover" }}
+                    />
+                  </Carousel.Item>
+                ))}
               </Carousel>
             </div>
           </div>

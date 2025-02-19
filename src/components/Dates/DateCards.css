@@ -5,16 +5,16 @@
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .dates-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2.5rem;
+  gap: 4rem 6rem;
   margin: 0 auto;
   max-width: 1200px;
-  padding: 0 2rem;
+  padding: 0 3rem;
 }
 
 .date-card {
@@ -23,7 +23,7 @@
   height: 250px;
   background-color: rgba(66, 106, 100, 0.8);
   border-radius: 15px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 16px rgba(43, 81, 58, 0.588);
   transition: all 0.3s ease;
   overflow: hidden;
   margin: 0 auto;
@@ -31,7 +31,7 @@
 
 .date-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 3px 12px 20px rgba(90, 165, 145, 0.656);
 }
 
 .face {
@@ -63,15 +63,19 @@
   font-weight: 700;
   margin-bottom: 1rem;
   color: #7DFFE4;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  text-shadow: 2px 2px 4px rgba(255, 0, 0, 0.517);
 }
 
 .card-description {
-  font-family: 'Roboto', sans-serif;
-  font-size: 1.2rem;
-  line-height: 1.5;
-  opacity: 0.9;
-  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem !important;
+  line-height: 1.6;
+  color: #fafafa !important;
+  margin-top: 0.5rem;
+  font-weight: 300;
+  text-shadow: rgb(151, 221, 157) !important;
+  padding: 0 1rem;
+  text-align: left;
 }
 
 .face2 {
@@ -102,40 +106,39 @@
   transform: translateY(0);
 }
 
-/* Responsive Design */
+/* Enhanced Responsive Design */
 @media (max-width: 1200px) {
   .dates-grid {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 3rem;
+    padding: 0 2rem;
   }
   
   .date-card {
     width: 100%;
     max-width: 500px;
+    height: 230px;
+  }
+
+  .card-title {
+    font-size: 2.2rem;
+  }
+
+  .card-description {
+    font-size: 0.95rem !important;
+    line-height: 1.5;
+    padding: 0 0.75rem;
   }
 }
 
 @media (max-width: 768px) {
-  .date-card {
-    height: 220px;
-  }
-
-  .card-title {
-    font-size: 2rem;
-  }
-
-  .card-description {
-    font-size: 1rem;
-  }
-
-  .date-text {
-    font-size: 2.5rem;
-  }
-}
-
-@media (max-width: 576px) {
   .dates-wrapper {
-    padding: 1rem;
+    padding: 0.75rem;
+  }
+
+  .dates-grid {
+    gap: 2.5rem;
+    padding: 0 1.5rem;
   }
 
   .date-card {
@@ -144,10 +147,89 @@
 
   .card-title {
     font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-description {
+    font-size: 0.9rem !important;
+    line-height: 1.4;
+    padding: 0 0.5rem;
   }
 
   .date-text {
-    font-size: 2rem;
+    font-size: 2.2rem;
+  }
+
+  .face1 {
+    padding: 1.5rem;
+  }
+
+  .content {
+    padding: 0.75rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .dates-wrapper {
+    padding: 0.5rem;
+  }
+
+  .date-card {
+    height: 180px;
+  }
+
+  .card-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .card-description {
+    font-size: 0.8rem !important;
+    line-height: 1.3;
+    padding: 0 0.25rem;
+  }
+
+  .date-text {
+    font-size: 1.8rem;
+  }
+
+  .face1 {
+    padding: 1rem;
+  }
+
+  .content {
+    padding: 0.5rem;
+  }
+
+  .date-card:hover .face2 {
+    transform: translateY(80%);
+  }
+}
+
+@media (max-width: 380px) {
+  .date-card {
+    height: 170px;
+  }
+
+  .card-title {
+    font-size: 1.3rem;
+  }
+
+  .card-description {
+    font-size: 0.75rem !important;
+    line-height: 1.2;
+  }
+
+  .date-text {
+    font-size: 1.6rem;
+  }
+
+  .face1 {
+    padding: 0.75rem;
+  }
+
+  .content {
+    padding: 0.4rem;
   }
 }
 
@@ -170,4 +252,56 @@
 .date-card:nth-child(1) { animation-delay: 0.1s; }
 .date-card:nth-child(2) { animation-delay: 0.2s; }
 .date-card:nth-child(3) { animation-delay: 0.3s; }
-.date-card:nth-child(4) { animation-delay: 0.4s; } 
+.date-card:nth-child(4) { animation-delay: 0.4s; }
+
+/* Update hover effects for desktop */
+@media (min-width: 769px) {
+  .date-card:hover .face2 {
+    transform: translateY(85%);
+  }
+
+  .date-card:hover .face1 {
+    transform: translateY(0);
+  }
+}
+
+/* Update mobile view intersection animation */
+@media (max-width: 768px) {
+  .date-card .face2 {
+    transform: translateY(0);
+    transition: transform 0.4s ease;
+  }
+
+  .date-card .face1 {
+    transform: translateY(0);
+    transition: transform 0.4s ease;
+  }
+
+  /* Ensure only active card shows animation */
+  .date-card.card-active .face2 {
+    transform: translateY(85%);
+  }
+
+  /* Reset any hover effects on mobile */
+  .date-card:hover .face2 {
+    transform: none;
+  }
+
+  .date-card:hover {
+    transform: none;
+    box-shadow: 0 8px 16px rgba(43, 81, 58, 0.588);
+  }
+
+  /* Add smooth transition for closing */
+  .date-card:not(.card-active) .face2 {
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+  }
+}
+
+/* Ensure desktop hover still works */
+@media (min-width: 769px) {
+  .date-card:hover .face2 {
+    transform: translateY(85%);
+  }
+} 

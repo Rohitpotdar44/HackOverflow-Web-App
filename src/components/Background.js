@@ -1,7 +1,9 @@
 import React from "react";
-import backgroundVideoDesktop from "../assets/img/bg/bg-desktop.webm";
-import backgroundVideoMobile from "../assets/img/bg/bg-phone.webm";
 import "./Background.css";
+
+// CDN URLs for background videos
+const backgroundVideoDesktop = "https://hackoverflow3.blr1.cdn.digitaloceanspaces.com/bg_video/bg-desktop.webm";
+const backgroundVideoMobile = "https://hackoverflow3.blr1.cdn.digitaloceanspaces.com/bg_video/bg-phone.webm";
 
 const Background = (props) => {
   const isMobile = window.innerWidth < 450;

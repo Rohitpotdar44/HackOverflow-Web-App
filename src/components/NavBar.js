@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
-import logo from "../assets/img/H0 3.0 assets/3.0 logo 2025.png";
 import ProgressBar from "./progressBar/ProgressBar";
 import { Link, useLocation } from "react-router-dom";
+
+const logo = "https://hackoverflow3.blr1.cdn.digitaloceanspaces.com/assets/logos/3.0%20logo%202025.png";
 
 export const NavBar = () => {
   const [activeLink, setActiveLink] = useState("home");
@@ -45,7 +46,7 @@ export const NavBar = () => {
             </a>
           </Navbar.Brand>
 
-          {/* New button "Brchure mobile button" only shown in mobile view */}
+          {/* New button "Brochure mobile button" only shown in mobile view */}
           <button
             style={{
               backgroundColor: "transparent",
@@ -155,7 +156,7 @@ export const NavBar = () => {
             </Nav>
             <div className="navbar-text flex justify-end">
               <a
-                href="http://hackoverflow3.tech/docs/publicityBrochure.pdf"
+                href="https://hackoverflow3.blr1.cdn.digitaloceanspaces.com/Brochure/publicityBrochure.pdf"
                 target="_blank"
                 rel="noreferrer"
               >
