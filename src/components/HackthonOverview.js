@@ -1,7 +1,7 @@
 import React, { memo, useState, useEffect, useCallback } from 'react';
 import { Col, Container, Row } from "react-bootstrap";
 import CountUp from "react-countup";
-import groupProgramming from "../assets/img/banner-illustration.png";
+import groupProgramming from "../assets/img/banner-illustration.svg";
 import "./HackathonOverview.css";
 import OptimizedImage from './common/OptimizedImage';
 

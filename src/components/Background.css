@@ -1,24 +1,53 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@900&display=swap");
 
+.background-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.bg-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 /* Positioning the Registration Button */
 .button-container {
   position: absolute;
-  top: 75vh;
-  right: 43%;
+  top: 78%;
+  left: 50%;
+  transform: translate(-54%, -45%);
   display: flex;
   align-items: center;
-  gap: 8px;
-  z-index: 1000; /* Ensures it stays above other elements */
+  justify-content: center;
+  width: auto;
+  z-index: 1000;
 }
 
 /* Responsive Fix for Mobile */
+@media (max-width: 768px) {
+  .button-container {
+    top: 65%;
+  }
+}
+
 @media (max-width: 450px) {
   .button-container {
-    top: 65vh; /* Moves button lower */
-    left: 50%;
-    transform: translateX(-50%);
-    width: max-content;
-    justify-content: center;
+    top: 70%;
   }
 }
 

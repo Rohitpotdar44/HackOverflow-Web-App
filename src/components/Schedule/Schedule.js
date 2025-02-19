@@ -9,6 +9,7 @@ import "./Schedule.css";
 import classes from "./Schedule.module.css";
 import { useEffect, useState, memo, useCallback } from "react";
 // import { Stack } from "@mui/material";
+import DateCards from '../Dates/DateCards';
 
 // Memoized image component for better performance
 const ScheduleImage = memo(({ src, alt }) => (
@@ -158,9 +159,7 @@ export const Schedule = () => {
           >
             Key Dates
           </h1>
-          {dateCards.map((card, index) => (
-            <DateCard key={index} {...card} />
-          ))}
+          <DateCards />
         </div>
         {/* <div className="row">
           <Stack>

@@ -1,0 +1,173 @@
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap");
+
+.dates-wrapper {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.dates-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 2rem;
+}
+
+.date-card {
+  position: relative;
+  width: 500px;
+  height: 250px;
+  background-color: rgba(66, 106, 100, 0.8);
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.date-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+}
+
+.face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease;
+}
+
+.face1 {
+  background: rgba(66, 106, 100, 1);
+  padding: 2rem;
+  z-index: 1;
+  transform: translateY(0);
+}
+
+.content {
+  text-align: center;
+  color: #fff;
+  padding: 1rem;
+}
+
+.card-title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #7DFFE4;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.card-description {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  opacity: 0.9;
+  color: #fff;
+}
+
+.face2 {
+  background: linear-gradient(
+    170deg,
+    rgba(167, 200, 192, 1) 0%,
+    rgba(68, 130, 112, 1) 45%,
+    rgba(20, 43, 35, 1) 100%
+  );
+  transform: translateY(0);
+  border-radius: 15px;
+  z-index: 2;
+}
+
+.date-text {
+  font-family: 'Roboto', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: #7DFFE4;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.date-card:hover .face2 {
+  transform: translateY(85%);
+}
+
+.date-card:hover .face1 {
+  transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .dates-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .date-card {
+    width: 100%;
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .date-card {
+    height: 220px;
+  }
+
+  .card-title {
+    font-size: 2rem;
+  }
+
+  .card-description {
+    font-size: 1rem;
+  }
+
+  .date-text {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .dates-wrapper {
+    padding: 1rem;
+  }
+
+  .date-card {
+    height: 200px;
+  }
+
+  .card-title {
+    font-size: 1.8rem;
+  }
+
+  .date-text {
+    font-size: 2rem;
+  }
+}
+
+/* Animation for cards */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.date-card {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.date-card:nth-child(1) { animation-delay: 0.1s; }
+.date-card:nth-child(2) { animation-delay: 0.2s; }
+.date-card:nth-child(3) { animation-delay: 0.3s; }
+.date-card:nth-child(4) { animation-delay: 0.4s; } 

@@ -11,11 +11,12 @@ const Background = (props) => {
   };
 
   return (
-    <>
+    <div className="background-wrapper">
       <video
         autoPlay
         loop
         muted
+        playsInline
         className="bg-video"
         id="home"
       >
@@ -26,16 +27,16 @@ const Background = (props) => {
       </video>
       <div className="overlay">
         {props.children}
+        <div className="button-container">
+          <button  
+            className="button-86"
+            onClick={handleRegisterButtonClick}
+          >
+            Register Here!
+          </button>
+        </div>
       </div>
-      <div className="button-container">
-        <button  
-          className="button-86"
-          onClick={handleRegisterButtonClick}
-        >
-          Register Here!
-        </button>
-      </div>
-    </>
+    </div>
   );
 };
 
