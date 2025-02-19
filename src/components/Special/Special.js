@@ -7,9 +7,11 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import "./Special.css";
 import VideoCard from "../VideoCard";
-import Video1 from "../../assets/img/20.mp4";
-import Video2 from "../../assets/img/21.mp4";
-import Video3 from "../../assets/img/22.mp4";
+
+// CDN URLs for videos
+const Video1 = "https://hackoverflow3.blr1.cdn.digitaloceanspaces.com/assets/SpecialDate/20.mp4";
+const Video2 = "https://hackoverflow3.blr1.cdn.digitaloceanspaces.com/assets/SpecialDate/21.mp4";
+const Video3 = "https://hackoverflow3.blr1.cdn.digitaloceanspaces.com/assets/SpecialDate/22.mp4";
 // import Image1 from '../../assets/img/TBA_dates(T).png';
 // import Image2 from '../../assets/img/TBA_dates(B).png';
 // import Image3 from '../../assets/img/TBA_dates(A).png';

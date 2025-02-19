@@ -1,193 +1,102 @@
-import PhotoAlbum from "react-photo-album";
-import React, { useState, useEffect } from "react";
-import { NavBar } from "../NavBar";
-import Footer from "../Footer";
-import MobileNavbar from "../MobileNavbar/MobileNavbar";
-// import Button from "../FaceGallery/Button";
-// import "../FaceGallery/ImageFilter.css";
-import "./gal.css";
-// import ImageModal from "./ImageModal";
+import React, { useState, useEffect, useCallback } from 'react';
+import './gal.css';
+import { filterableData } from '../FaceGallery/filterableData';
 
-function importAll(r) {
-    return r.keys().map(r);
-}
+const Gallery = () => {
+  const [selectedTab, setSelectedTab] = useState('hackoverflow1');
+  const [images, setImages] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [selectedImage, setSelectedImage] = useState(null);
 
-const Gal = () => {
-    const [windowSize, setWindowSize] = useState([
-        window.innerWidth,
-        window.innerHeight,
-    ]);
-    const [selectedCategory, setSelectedCategory] = useState("all");
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [selectedImage, setSelectedImage] = useState(null);
+  const filterImages = useCallback((category) => {
+    return filterableData.filter(item => item.category === category);
+  }, []);
 
-    useEffect(() => {
-        const handleWindowResize = () => {
-            setWindowSize([window.innerWidth, window.innerHeight]);
-        };
-        window.addEventListener("resize", handleWindowResize);
-        return () => {
-            window.removeEventListener("resize", handleWindowResize);
-        };
-    }, []);
+  useEffect(() => {
+    setLoading(true);
+    const filteredImages = filterImages(selectedTab);
+    setImages(filteredImages);
+    setLoading(false);
+  }, [selectedTab, filterImages]);
 
-    const allImages = importAll(
-        require.context(
-            "../../assets/img/Events/1.0/",
-            true,
-            /\.(webp|jpg|jpeg|png)$/
-        )
-    );
+  const tabs = [
+    { id: 'hackoverflow1', label: 'HackOverflow 1.0' },
+    { id: 'hackoverflow2', label: 'HackOverflow 2.0' },
+    { id: 'winners', label: "Winners" },
+    { id: 'home', label: 'Back to Home', href: '/#home' }
+  ];
 
-    const day1Images = importAll(
-        require.context(
-            "../../assets/img/Events/1.0/day1/",
-            false,
-            /\.(webp|jpg|jpeg|png)$/
-        )
-    );
+  const handleTabClick = (tab) => {
+    if (tab.href) {
+      window.location.href = tab.href;
+    } else {
+      setSelectedTab(tab.id);
+      setLoading(true);
+    }
+  };
 
-    const day2Images = importAll(
-        require.context(
-            "../../assets/img/Events/1.0/day2/",
-            false,
-            /\.(webp|jpg|jpeg|png)$/
-        )
-    );
+  const handleImageClick = (image) => {
+    setSelectedImage(image);
+  };
 
-    const day3Images = importAll(
-        require.context(
-            "../../assets/img/Events/1.0/day3/",
-            false,
-            /\.(webp|jpg|jpeg|png)$/
-        )
-    );
+  const closeModal = () => {
+    setSelectedImage(null);
+  };
 
-    const winnerImages = importAll(
-        require.context(
-            "../../assets/img/pastwinners/",
-            false,
-            /\.(webp|jpg|jpeg|png)$/
-        )
-    );
+  return (
+    <div className="gallery-container">
+      <h1 className="gallery-title gradient-text">Memories of HackOverflow</h1>
+      
+      <div className="tabs-container">
+        {tabs.map(tab => (
+          <button
+            key={tab.id}
+            className={`tab-button ${selectedTab === tab.id ? 'active' : ''} ${tab.href ? 'home-tab' : ''}`}
+            onClick={() => handleTabClick(tab)}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
 
-    const getFilteredImages = () => {
-        switch (selectedCategory) {
-            case "day1":
-                return day1Images;
-            case "day2":
-                return day2Images;
-            case "day3":
-                return day3Images;
-            case "winners":
-                return winnerImages;
-            default:
-                return allImages;
-        }
-    };
-
-    const handleCategoryChange = (category) => {
-        setSelectedCategory(category);
-    };
-
-    const photos = getFilteredImages().map((src, index) => ({
-        src,
-        width: 100,
-        height: 60,
-        // You can add more properties if needed
-    }));
-
-    const handleImageClick = ({ index }, event) => {
-        event.preventDefault();
-        const selectedImageUrl = getFilteredImages()[index];
-        console.log("hello");
-        setSelectedImage(selectedImageUrl);
-        setIsModalOpen(true);
-    };
-    
-
-
-    const handleCloseModal = () => {
-        setIsModalOpen(false);
-    };
-
-    const modal = isModalOpen && selectedImage && (
-        <div className="modal-overlay" onClick={handleCloseModal}>
-            <div className="modal-content">
-                <img src={selectedImage} alt="Selected" />
-            </div>
+      {loading ? (
+        <div className="loading-spinner">Loading...</div>
+      ) : (
+        <div className="image-box">
+          <div className="image-grid">
+            {images.map((item, index) => (
+              <div 
+                key={index} 
+                className="image-card"
+                style={{ animationDelay: `${index * 0.1}s` }}
+                onClick={() => handleImageClick(item.image)}
+              >
+                <img
+                  src={item.image}
+                  alt={`Gallery ${index + 1}`}
+                  loading="lazy"
+                  className="gallery-image"
+                />
+              </div>
+            ))}
+          </div>
         </div>
-    );
+      )}
 
-    return (
-        <>
-            <NavBar />
-            {windowSize[0] < 600 && <MobileNavbar />}
-            <div className="pt-32 w-full min-h-screen" id="gallery">
-                <h1
-                    id="orange-pink"
-                    className="pt-2 text-[30px] sm:text-[36px] md:text-[35px] lg:text-[45px]"
-                    style={{
-                        fontFamily: "Poppins,sans-serif",
-                        fontWeight: 700,
-                        textAlign: "center",
-                    }}
-                >
-                    Memories of HackOverflow 3.0
-                </h1>
-                {/* Buttons for category selection */}
-                <div className="grid grid-cols-2 md:flex md:flex-row md:justify-center md:gap-4 lg:grid-cols-2 xl:grid-cols-3 mt-4 mx-4">
-                    <button
-                        className={`focus:outline-none border-2 border-purple-600 hover:bg-purple-700 font-medium rounded-lg text-sm px-5 text-white py-2.5 mb-2 capitalize ${selectedCategory === "all" ? "bg-purple-600" : ""
-                            }`}
-                        onClick={() => handleCategoryChange("all")}
-                    >
-                        HackOverflow1.o
-                    </button>
-                    <button
-                        className={`focus:outline-none border-2 border-purple-600 hover:bg-purple-700 font-medium rounded-lg text-sm px-5 text-white py-2.5 mb-2 capitalize ${selectedCategory === "day1" ? "bg-purple-600" : ""
-                            }`}
-                        onClick={() => handleCategoryChange("day1")}
-                    >
-                        Day 1
-                    </button>
-                    <button
-                        className={`focus:outline-none border-2 border-purple-600 hover:bg-purple-700 font-medium rounded-lg text-sm px-5 text-white py-2.5 mb-2 capitalize ${selectedCategory === "day2" ? "bg-purple-600" : ""
-                            }`}
-                        onClick={() => handleCategoryChange("day2")}
-                    >
-                        Day 2
-                    </button>
-                    <button
-                        className={`focus:outline-none border-2 border-purple-600 hover:bg-purple-700 font-medium rounded-lg text-sm px-5 text-white py-2.5 mb-2 capitalize ${selectedCategory === "day3" ? "bg-purple-600" : ""
-                            }`}
-                        onClick={() => handleCategoryChange("day3")}
-                    >
-                        Day 3
-                    </button>
-                    <button
-                        className={`focus:outline-none border-2 border-purple-600 hover:bg-purple-700 font-medium rounded-lg text-sm px-5 text-white py-2.5 mb-2 capitalize self-center ${selectedCategory === "winners" ? "bg-purple-600" : ""
-                            }`}
-                        onClick={() => handleCategoryChange("winners")}
-                    >
-                        Winners
-                    </button>
-                </div>
-                <div className="photo-album-container mt-4">
-                    <PhotoAlbum
-                        layout="rows"
-                        photos={photos}
-                        onClick={(event, { index }) => handleImageClick(index, event)}
-                    />
-
-
-                </div>
-            </div>
-            {modal}
-            <Footer />
-        </>
-    );
+      {selectedImage && (
+        <div className="modal-overlay" onClick={closeModal}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <img 
+              src={selectedImage} 
+              alt="Selected" 
+              onClick={closeModal}
+            />
+          </div>
+        </div>
+      )}
+    </div>
+  );
 };
 
-export default Gal;
+export default Gallery;
 
