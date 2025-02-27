@@ -937,7 +937,7 @@ function Teampage() {
                             _hover={{
                               bgGradient:
                                 // "linear-gradient(99.23deg, #EA4335 2.35%, #4285F4 39.86%, #0F9D58 66.07%, #FBBC04 94.29%)",
-                                "linear-gradient(98.84deg, #ffff80 43.27%, #ff82bf 71.84%)",
+                                "linear-gradient(98.84deg, #80ffea 43.27%, #8aff81 71.84%)",
                               bgClip: "text",
                             }}
                           >
@@ -1005,7 +1005,7 @@ function Teampage() {
                             _hover={{
                               bgGradient:
                                 // "linear-gradient(99.23deg, #EA4335 2.35%, #4285F4 39.86%, #0F9D58 66.07%, #FBBC04 94.29%)",
-                                "linear-gradient(98.84deg, #a8519f 43.27%, #644ea0 71.84%)",
+                                "linear-gradient(98.84deg, #80ffea 43.27%, #8aff81 71.84%)",
                               bgClip: "text",
                             }}
                             //color = {selectedTeam === "core" ? "white" : "gray.600"}

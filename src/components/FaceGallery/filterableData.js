@@ -66,8 +66,10 @@ export const filterableData = [
   //   text: "test",
   // },
   {
+    // category: 'hackoverflow1',
+    // image: 'https://hackoverflow3.blr1.cdn.digitaloceanspaces.com/Gallery/HO1/DSC_0012.webp'
     category: 'hackoverflow1',
-    image: 'https://hackoverflow3.blr1.cdn.digitaloceanspaces.com/Gallery/HO1/DSC_0012.webp'
+    video: 'https://hackoverflow3.blr1.cdn.digitaloceanspaces.com/Gallery/AfterMovie/HackOverflow%201.0%20AfterMovie.mp4'
   },
   {
     category: 'hackoverflow1',
@@ -116,8 +118,10 @@ export const filterableData = [
   
   // DAY 2
   {
+    // category: 'hackoverflow2',
+    // image: 'https://hackoverflow3.blr1.cdn.digitaloceanspaces.com/Gallery/HO2/_MG_8046.webp'
     category: 'hackoverflow2',
-    image: 'https://hackoverflow3.blr1.cdn.digitaloceanspaces.com/Gallery/HO2/_MG_8046.webp'
+    video: 'https://hackoverflow3.blr1.cdn.digitaloceanspaces.com/Gallery/AfterMovie/Hackoverflow%202.0%20AfterMovie.mp4',
   },
   {
     category: 'hackoverflow2',
@@ -157,7 +161,7 @@ export const filterableData = [
   },
   {
     category: 'hackoverflow2',
-    image: 'https://hackoverflow3.blr1.cdn.digitaloceanspaces.com/Gallery/HO2/DSC_8071.JPG'
+    image: 'https://hackoverflow3.blr1.cdn.digitaloceanspaces.com/Gallery/HO2/DSC_8071.webp'
   },
   {
     category: 'hackoverflow2',

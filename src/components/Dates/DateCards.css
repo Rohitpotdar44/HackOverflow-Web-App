@@ -69,11 +69,11 @@
 .card-description {
   font-family: 'Poppins', sans-serif;
   font-size: 1rem !important;
-  line-height: 1.6;
-  color: #fafafa !important;
+  line-height: 1;
+  color: #fff !important;
   margin-top: 0.5rem;
-  font-weight: 300;
-  text-shadow: rgb(151, 221, 157) !important;
+  font-weight: 400;
+  text-shadow: rgb(35, 92, 49) !important;
   padding: 0 1rem;
   text-align: left;
 }

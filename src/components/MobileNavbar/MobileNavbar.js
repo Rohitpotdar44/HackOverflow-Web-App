@@ -21,46 +21,48 @@ const MobileNavbar = (props) => {
 
   const [value, setValue] = useState("home");
   return (
-    <BottomNavigation
-      showLabels
-      value={value}
-      onChange={(event, newValue) => {
-        setValue(newValue);
-      }}
-      className="bottom-navbar"
-      style={{ backgroundColor: "#365048" }}
-    >
-      <Nav.Link href={getLinkHref("home")}>
-        <BottomNavigationAction
-          label="Home"
-          icon={<Home style={{ fill: "#FFFFFF" }} />}
-        />
-      </Nav.Link>
-      <Nav.Link href={getLinkHref("schedule")}>
-        <BottomNavigationAction
-          label="Schedule"
-          icon={<Schedule style={{ fill: "#FFFFFF" }} />}
-        />
-      </Nav.Link>
-      <Nav.Link href={getLinkHref("themes")}>
-        <BottomNavigationAction
-          label="Themes"
-          icon={<Category style={{ fill: "#FFFFFF" }} />}
-        />
-      </Nav.Link>
-      <Nav.Link href={getLinkHref("sponsors")}>
-        <BottomNavigationAction
-          label="Sponsors"
-          icon={<Flare style={{ fill: "#FFFFFF" }} />}
-        />
-      </Nav.Link>
-      <Nav.Link href={getLinkHref("about")}>
-        <BottomNavigationAction
-          label="About"
-          icon={<Info style={{ fill: "#FFFFFF" }} />}
-        />
-      </Nav.Link>
-    </BottomNavigation>
+    <nav className="mobile-navbar">
+      <BottomNavigation
+        showLabels
+        value={value}
+        onChange={(event, newValue) => {
+          setValue(newValue);
+        }}
+        className="bottom-navbar"
+        style={{ backgroundColor: "#365048" }}
+      >
+        <Nav.Link href={getLinkHref("home")}>
+          <BottomNavigationAction
+            label="Home"
+            icon={<Home style={{ fill: "#FFFFFF" }} />}
+          />
+        </Nav.Link>
+        <Nav.Link href={getLinkHref("schedule")}>
+          <BottomNavigationAction
+            label="Schedule"
+            icon={<Schedule style={{ fill: "#FFFFFF" }} />}
+          />
+        </Nav.Link>
+        <Nav.Link href={getLinkHref("themes")}>
+          <BottomNavigationAction
+            label="Themes"
+            icon={<Category style={{ fill: "#FFFFFF" }} />}
+          />
+        </Nav.Link>
+        <Nav.Link href={getLinkHref("sponsors")}>
+          <BottomNavigationAction
+            label="Sponsors"
+            icon={<Flare style={{ fill: "#FFFFFF" }} />}
+          />
+        </Nav.Link>
+        <Nav.Link href={getLinkHref("about")}>
+          <BottomNavigationAction
+            label="About"
+            icon={<Info style={{ fill: "#FFFFFF" }} />}
+          />
+        </Nav.Link>
+      </BottomNavigation>
+    </nav>
   );
 };
 export default MobileNavbar;

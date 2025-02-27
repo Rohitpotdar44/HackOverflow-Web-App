@@ -55,7 +55,7 @@ export const NavBar = () => {
               fontWeight: "300",
             }}
             className="hover:bg-[#5B8F81] text-white font-bold py-2 px-4 rounded d-md-none ml-auto"
-            onClick={() => window.open("", "_blank")}
+            onClick={() => window.open("https://hackoverflow3.blr1.cdn.digitaloceanspaces.com/Brochure/publicityBrochure.pdf", "_blank")}
           >
             Brochure
           </button>
@@ -84,7 +84,7 @@ export const NavBar = () => {
                 Schedule
               </Nav.Link>
 
-              <Nav.Link
+              {/* <Nav.Link
                 href={getLinkHref("themes")}
                 className={
                   activeLink === "themes" ? "active navbar-link" : "navbar-link"
@@ -92,7 +92,7 @@ export const NavBar = () => {
                 onClick={() => setActiveLink("themes")}
               >
                 Themes
-              </Nav.Link>
+              </Nav.Link> */}
 
               <Nav.Link
                 href={getLinkHref("sponsors")}

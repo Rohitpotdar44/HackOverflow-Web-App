@@ -11,9 +11,8 @@
 .hackathon-overview-text {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
-
-
-  font-size: 1.4rem;
+  font-size: 1.2rem;
+  text-align: justify;
 }
 
 .counters-grid {

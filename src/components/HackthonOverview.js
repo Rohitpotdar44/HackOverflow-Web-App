@@ -98,7 +98,7 @@ const HackathonOverview = () => {
           </div>
           
           <div className="w-full lg:w-1/2 text-white px-4">
-            <p className="text-lg leading-relaxed mb-8">
+            <p className="hackathon-overview-text leading-relaxed mb-8">
               HackOverflow, a 3-day National level hackathon organized by the Department of Computer Engineering at PHCET, brings together students from all over the country to showcase their skills and creativity in software development. The event provides a platform for collaboration, learning, and the development of new solutions to real-world problems.
             </p>
             
