@@ -87,7 +87,7 @@ const DateCards = () => {
               </div>
             </div>
             <div className="face face2">
-              <div className="date-text" id='green-yellow'>
+              <div className="date-text" id='light-green-grey'>
                 {item.date} {item.month}
               </div>
             </div>

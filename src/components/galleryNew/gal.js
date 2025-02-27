@@ -71,12 +71,19 @@ const Gallery = () => {
                 style={{ animationDelay: `${index * 0.1}s` }}
                 onClick={() => handleImageClick(item.image)}
               >
-                <img
-                  src={item.image}
-                  alt={`Gallery ${index + 1}`}
-                  loading="lazy"
-                  className="gallery-image"
-                />
+                {item.video ? (
+                  <video controls className="gallery-video">
+                    <source src={item.video} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                ) : (
+                  <img
+                    src={item.image}
+                    alt={`Gallery ${index + 1}`}
+                    loading="lazy"
+                    className="gallery-image"
+                  />
+                )}
               </div>
             ))}
           </div>

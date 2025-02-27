@@ -86,7 +86,7 @@
   background-clip: text;
 }
 #light-green-grey {
-  background: linear-gradient(98.84deg, #DFEEE0 43.27%, #848484 71.84%);
+  background: linear-gradient(98.84deg, #8cc08f 43.27%, #8ffffb 98.84%) !important;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
